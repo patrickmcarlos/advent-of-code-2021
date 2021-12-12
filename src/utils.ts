@@ -24,7 +24,7 @@ export const strTo3dMatrixHelper = (str: string): number[][][] => {
 };
 
 // Marked numbers are denoted by -1 on the board.
-export const verifyBingo = (board: number[][]): boolean => {
+export const verifyBoard = (board: number[][]): boolean => {
     // The board will typically be a square.
     const height = board.length;
     const width = board[0].length;
@@ -90,4 +90,18 @@ export const updateBoard = (board: number[][], numberCalled: number): void => {
             }
         }
     }
-};
+}; 
+
+export const findSumOfUnmarkedNumbers = (board: number[][]) => {
+    let count = 0;
+
+    for (let row of board) {
+        for (let num of row) {
+            if (num !== -1) {
+                count += num;
+            }
+        }
+    }
+
+    return count;
+}
