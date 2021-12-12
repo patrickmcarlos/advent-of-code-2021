@@ -1,10 +1,6 @@
 import input from './data';
 
-/*
-Instead, consider sums of a three-measurement sliding window.
-*/
-
-// Since our input data is a string we will need to cast it into an array.
+// https://adventofcode.com/2021/day/1
 const getSumWindow = (arr: string[], start: number, end: number) => {
     let sum = 0;
 

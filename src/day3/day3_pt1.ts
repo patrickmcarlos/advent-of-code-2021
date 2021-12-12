@@ -1,5 +1,6 @@
 import input from './data';
 
+// https://adventofcode.com/2021/day/3
 const getPowerConsumption = (input: string[]) => {
     let gamma = '', epsilon = '';
     let numDigits = input[0].length;

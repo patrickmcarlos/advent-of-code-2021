@@ -1,5 +1,6 @@
 import input from './data';
 
+// https://adventofcode.com/2021/day/2
 const getProductOfHorizontalAndDepth = (arr: string[]) => {
     let depth = 0, horizontal = 0;
 

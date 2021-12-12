@@ -1,5 +1,6 @@
 import input from './data';
 
+// https://adventofcode.com/2021/day/3
 const getLifeSupportRating = (input: string[]) => {
     let oxygenArr = [...input];
     let co2Arr = [...input];
