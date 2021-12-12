@@ -27,7 +27,16 @@ export const strTo3dMatrixHelper = (str: string): number[][][] => {
 export const verifyBoard = (board: number[][]): boolean => {
     // The board will typically be a square.
     const height = board.length;
+
+    if (!height) {
+        return false;
+    }
+
     const width = board[0].length;
+
+    if (!width) {
+        return false;
+    }
 
     // Find horizontal wins (rows)
     for (let x = 0; x < height; x++) {
