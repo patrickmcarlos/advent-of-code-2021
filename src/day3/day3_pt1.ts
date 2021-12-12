@@ -1,8 +1,7 @@
 import input from './data';
 
 const getPowerConsumption = (input: string[]) => {
-    let gamma = "";
-    let epsilon = "";
+    let gamma = '', epsilon = '';
     let numDigits = input[0].length;
 
     for (let i = 0; i < numDigits; i++) {
@@ -11,26 +10,21 @@ const getPowerConsumption = (input: string[]) => {
 
         for (const numStr of input) {
             const val = numStr.charAt(i);
-
-            if (val === "1") {
-                ones++;
-            } else {
-                zeros++;
-            }
+            val === '1' ? ones++ : zeros++;
         }
 
         if (ones > zeros) {
-            gamma += "1";
-            epsilon += "0";
+            gamma += '1';
+            epsilon += '0';
         } else {
-            gamma += "0";
-            epsilon += "1";
+            gamma += '0';
+            epsilon += '1';
         }
     }
 
     const product = parseInt(gamma, 2) * parseInt(epsilon, 2);
 
     return product;
-}
+};
 
 console.log(getPowerConsumption(input));

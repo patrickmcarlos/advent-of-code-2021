@@ -1,9 +1,9 @@
 import input from './data';
 
 const getProductOfHorizontalAndDepth = (arr: string[]) => {
-    let depth = 0;
-    let horizontal = 0;
-    let aim = 0;
+    let depth = 0,
+        horizontal = 0,
+        aim = 0;
 
     for (let instruction of arr) {
         const [action, numStr] = instruction.split(' ');
@@ -24,6 +24,6 @@ const getProductOfHorizontalAndDepth = (arr: string[]) => {
     }
 
     return depth * horizontal;
-}
+};
 
 console.log(getProductOfHorizontalAndDepth(input));
