@@ -4,7 +4,7 @@ import {
     updateBoard,
     verifyBoard,
     findSumOfUnmarkedNumbers,
-} from '../utils';
+} from './utils';
 
 const processedBoards = strTo3dMatrixHelper(rawInput);
 const processedNumbersDrawn = numbersDrawn.split(',').map(str => Number(str));
