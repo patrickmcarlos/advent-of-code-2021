@@ -28,9 +28,9 @@ const getPowerConsumption = (input: string[]) => {
         }
     }
 
-    const sum = parseInt(gamma, 2) * parseInt(epsilon, 2);
+    const product = parseInt(gamma, 2) * parseInt(epsilon, 2);
 
-    return sum;
+    return product;
 }
 
 console.log(getPowerConsumption(input));
