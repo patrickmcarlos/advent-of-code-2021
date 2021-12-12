@@ -13,7 +13,6 @@ To do this, count the number of times a depth measurement increases from the pre
 // Since our input data is a string we will need to cast it into an array.
 const calculateNumIncreases = (arr: string[]) => {
     let count = 0;
-
     let currIdx = 0;
     let nextIdx = 1;
 
