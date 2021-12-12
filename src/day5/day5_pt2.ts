@@ -1,5 +1,9 @@
 import { input } from './data';
-import { updateMatrixHorizontally, updateMatrixVertically } from './utils';
+import {
+    updateMatrixDiagonally,
+    updateMatrixHorizontally,
+    updateMatrixVertically,
+} from './utils';
 
 const processedInput: [[number, number], [number, number]][] = input.map(
     (rowStr) => {
@@ -39,6 +43,8 @@ const findNumOfOverlappingPts = (
             updateMatrixHorizontally(firstX, firstY, secondY, matrix);
         } else if (firstY === secondY) {
             updateMatrixVertically(firstY, firstX, secondX, matrix);
+        } else {
+            updateMatrixDiagonally(firstX, firstY, secondX, secondY, matrix);
         }
     }
 
