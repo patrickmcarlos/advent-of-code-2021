@@ -9,6 +9,7 @@ import {
 const processedBoards = strTo3dMatrixHelper(rawInput);
 const processedNumbersDrawn = numbersDrawn.split(',').map(str => Number(str));
 
+// https://adventofcode.com/2021/day/4
 const findBingoFinalScore = (boards: number[][][], numbers: number[]) => {
     let numBoardsWon = 0;
     for (let num of numbers) {

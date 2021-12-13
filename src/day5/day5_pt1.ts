@@ -1,6 +1,7 @@
 import { input } from './data';
 import { updateMatrixHorizontally, updateMatrixVertically } from './utils';
 
+// https://adventofcode.com/2021/day/5
 const processedInput: [[number, number], [number, number]][] = input.map(
     (rowStr) => {
         const [ptAStr, ptBStr] = rowStr.split(' -> ');
