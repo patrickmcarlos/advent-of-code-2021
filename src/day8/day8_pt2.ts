@@ -10,17 +10,6 @@ const parseEntry = (str: string): [string[], string[]] => {
     return [arr[0].split(' '), arr[1].split(' ')];
 };
 
-// [a,b,c,d,e,f,g] <- could be in any order
-// 1 is always 3,6
-// 2 is 1,3,4,5,7
-// 3 is 1,3,4,6,7
-// 4 is 2,3,4,6
-// 5 is 1,2,4,6,7
-// 6 is 1,2,4,5,6,7
-// 7 is 1,3,6
-// 8 is 1,2,3,4,5,6,7
-// 9 is 1,2,3,4,6,7
-// 0 is 1,2,3,5,6,7
 const one = [3, 6];
 const two = [1, 3, 4, 5, 7];
 const three = [1, 3, 4, 6, 7];
