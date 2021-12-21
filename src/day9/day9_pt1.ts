@@ -31,9 +31,7 @@ const checkIfLowPoint = (
     const up = x > 0 ? matrix[x - 1][y] : Infinity;
     const down = x < matrix.length - 1 ? matrix[x + 1][y] : Infinity;
 
-    const isLowestPoint = ![up, down, left, right].some(
-        (neighbour) => neighbour <= num
-    );
+    const isLowestPoint = [up, down, left, right].every(neighbor => neighbor > num)
 
     return isLowestPoint;
 };
