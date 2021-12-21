@@ -15,7 +15,7 @@ const bracketComplementMap = {
     '<': '>',
 };
 
-const findTotalSyntaxErrorScore = (arr: string[][]) => {
+const findMiddleCompletionScore = (arr: string[][]) => {
     let scoreArr = [];
 
     for (const row of arr) {
@@ -61,8 +61,6 @@ const findTotalSyntaxErrorScore = (arr: string[][]) => {
 
         let score = 0;
 
-        console.log(bracketsToAdd);
-
         for (const bracket of bracketsToAdd) {
             score = score * 5;
 
@@ -86,9 +84,8 @@ const findTotalSyntaxErrorScore = (arr: string[][]) => {
     }
 
     scoreArr = scoreArr.sort((a, b) => a - b);
-    console.log(scoreArr);
 
     return scoreArr[Math.floor(scoreArr.length / 2)];
 };
 
-console.log(findTotalSyntaxErrorScore(processData(example)));
+console.log(findMiddleCompletionScore(processData(input)));
