@@ -4,7 +4,7 @@ const processData = (str: string) => {
     return str.split('\n').map((row) => row.split(''));
 };
 
-const bracketComplementMap = {
+const complementMap = {
     ')': '(',
     ']': '[',
     '}': '{',
@@ -23,29 +23,30 @@ const findMiddleCompletionScore = (arr: string[][]) => {
         let bracketsToAdd = [];
 
         for (let i = 0; i < row.length; i++) {
-            const bracket = row[i];
+            const curr = row[i];
 
-            switch (bracket) {
+            switch (curr) {
                 case '[':
                 case '(':
                 case '{':
                 case '<':
-                    stack.push(bracket);
+                    stack.push(curr);
                     break;
                 default:
-                    let peek = stack[stack.length - 1];
-                    let complement = bracketComplementMap[peek];
+                    let complement = complementMap[stack[stack.length - 1]];
 
-                    if (bracket === complement) {
+                    if (curr === complement) {
                         stack.pop();
                     } else {
                         while (
-                            bracketComplementMap[stack[stack.length - 1]] !==
-                                bracket &&
+                            complementMap[stack[stack.length - 1]] !== curr &&
                             stack.length > 0
                         ) {
-                            bracketsToAdd.push(complement);
-                            stack.pop();
+                            bracketsToAdd.push(complementMap[stack.pop()]);
+                        }
+
+                        if (!stack.length) {
+                            console.log({ stack, curr, str: row.join('') });
                         }
 
                         stack.pop();
@@ -56,7 +57,7 @@ const findMiddleCompletionScore = (arr: string[][]) => {
         }
 
         while (stack.length) {
-            bracketsToAdd.push(bracketComplementMap[stack.pop()]);
+            bracketsToAdd.push(complementMap[stack.pop()]);
         }
 
         let score = 0;
@@ -88,4 +89,4 @@ const findMiddleCompletionScore = (arr: string[][]) => {
     return scoreArr[Math.floor(scoreArr.length / 2)];
 };
 
-console.log(findMiddleCompletionScore(processData(input)));
+console.log(findMiddleCompletionScore(processData('[<(<<[(({([[<<[][]><{}()>><{<><>>[<>[]]>]]((<(<>[]){<>{}}>{{()[]}(<>[])})))<((((()[])[()<>])))')));
