@@ -3,14 +3,16 @@ import { input, example, smallerExample } from './data';
 const processData = (input: string) =>
     input.split('\n').map((row) => row.split('').map((str) => Number(str)));
 
-const countFlashesAfterNSteps = (matrix: number[][], steps: number = 100) => {
-    let numFlashes = 0;
+const findStepWhereAllFlash = (matrix: number[][], limit: number = 500) => {
+    for (let i = 1; i <= limit; i++) {
+        updateMatrix(matrix);
 
-    for (let i = 1; i <= steps; i++) {
-        numFlashes += updateMatrix(matrix);
+        if (checkIfAllFlash(matrix)) {
+            return i;
+        }
     }
 
-    return numFlashes;
+    return -1;
 };
 
 // Very important thing to note is that you NEED to use recursion to increase neighbors.
@@ -44,7 +46,11 @@ const updateMatrix = (matrix: number[][]) => {
     return count;
 };
 
-const recursivelyIncrementNeighbors = (x: number, y: number, matrix: number[][]) => {
+const recursivelyIncrementNeighbors = (
+    x: number,
+    y: number,
+    matrix: number[][]
+) => {
     if (matrix[x][y] < 10 || matrix[x][y] === 0) {
         return;
     }
@@ -117,6 +123,10 @@ const recursivelyIncrementNeighbors = (x: number, y: number, matrix: number[][])
     if (x > 0 && y < matrix[0].length - 1) {
         recursivelyIncrementNeighbors(x - 1, y + 1, matrix);
     }
-}
+};
 
-console.log(countFlashesAfterNSteps(processData(input), 100));
+const checkIfAllFlash = (matrix: number[][]) => {
+    return matrix.every((row) => row.every((val) => val === 0));
+};
+
+console.log(findStepWhereAllFlash(processData(input)));
