@@ -46,10 +46,6 @@ export const findNumPossiblePaths = (input: string[][]) => {
             const newPaths = [...paths];
             const newVisitedNodes = new Set<string>([...visitedNodes]);
 
-            if (newPath === 'end') {
-                console.log({ paths, path: newPath, newVisitedNodes });
-            }
-
             const isPathLowerCase = newPath === newPath.toLowerCase();
 
             if (isPathLowerCase) {
