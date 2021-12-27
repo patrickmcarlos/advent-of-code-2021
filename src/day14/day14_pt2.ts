@@ -10,6 +10,9 @@ const processData = (input: string): InputData => {
     return { polymerTemplate, rules };
 };
 
+// We know that the length of the template arr will double.
+// As iterating through a large is computationally intensive we need to find some mathematical pattern that allows us to determine
+// the least and most frequent elements as we increase the number of steps.
 const findDiffInMostAndLeastCommonElements = (
     { polymerTemplate, rules }: InputData,
     numSteps: number = 10
@@ -39,7 +42,15 @@ const findDiffInMostAndLeastCommonElements = (
             templateArr.splice(idx, 0, char);
         }
 
-        console.log({ currStep: currStep + 1, length: templateArr.length });
+        const { min, max } = findMinMax(templateArr);
+
+        console.log({
+            min,
+            max,
+            length: templateArr.length,
+            diff: max - min,
+            sum: max + min,
+        });
 
         currStep++;
     }
@@ -81,4 +92,4 @@ const findMinMax = (arr: string[]): { min: number; max: number } => {
 
 const processedData = processData(input);
 
-console.log(findDiffInMostAndLeastCommonElements(processedData, 40));
+console.log(findDiffInMostAndLeastCommonElements(processedData, 10));
