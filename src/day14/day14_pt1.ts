@@ -81,4 +81,4 @@ const findMinMax = (arr: string[]): { min: number; max: number } => {
 
 const processedData = processData(input);
 
-console.log(findDiffInMostAndLeastCommonElements(processedData, 40));
+console.log(findDiffInMostAndLeastCommonElements(processedData, 10));
